@@ -1,0 +1,316 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9C24D6261E637541003D45F8 /* clipper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C24D61F1E637541003D45F8 /* clipper.cpp */; };
+		9C24D6271E637541003D45F8 /* clipTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C24D6211E637541003D45F8 /* clipTest.cpp */; };
+		9C24D6281E637541003D45F8 /* extendedCanvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C24D6221E637541003D45F8 /* extendedCanvas.cpp */; };
+		9C24D6291E637541003D45F8 /* simpleCanvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C24D6241E637541003D45F8 /* simpleCanvas.cpp */; };
+		9C24D6551E6376D8003D45F8 /* sfml-audio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C24D64F1E6376D8003D45F8 /* sfml-audio.framework */; };
+		9C24D6561E6376D8003D45F8 /* sfml-graphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C24D6501E6376D8003D45F8 /* sfml-graphics.framework */; };
+		9C24D6571E6376D8003D45F8 /* sfml-network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C24D6511E6376D8003D45F8 /* sfml-network.framework */; };
+		9C24D6581E6376D8003D45F8 /* sfml-system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C24D6521E6376D8003D45F8 /* sfml-system.framework */; };
+		9C24D6591E6376D8003D45F8 /* sfml-window.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C24D6531E6376D8003D45F8 /* sfml-window.framework */; };
+		9C24D65A1E6376D8003D45F8 /* SFML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C24D6541E6376D8003D45F8 /* SFML.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9C24D6131E637525003D45F8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		9C24D6151E637526003D45F8 /* CS537PA3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CS537PA3; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C24D61F1E637541003D45F8 /* clipper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = clipper.cpp; sourceTree = "<group>"; };
+		9C24D6201E637541003D45F8 /* clipper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = clipper.h; sourceTree = "<group>"; };
+		9C24D6211E637541003D45F8 /* clipTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = clipTest.cpp; sourceTree = "<group>"; };
+		9C24D6221E637541003D45F8 /* extendedCanvas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = extendedCanvas.cpp; sourceTree = "<group>"; };
+		9C24D6231E637541003D45F8 /* extendedCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = extendedCanvas.h; sourceTree = "<group>"; };
+		9C24D6241E637541003D45F8 /* simpleCanvas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = simpleCanvas.cpp; sourceTree = "<group>"; };
+		9C24D6251E637541003D45F8 /* simpleCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simpleCanvas.h; sourceTree = "<group>"; };
+		9C24D64F1E6376D8003D45F8 /* sfml-audio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-audio.framework"; path = "Frameworks/sfml-audio.framework"; sourceTree = "<group>"; };
+		9C24D6501E6376D8003D45F8 /* sfml-graphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-graphics.framework"; path = "Frameworks/sfml-graphics.framework"; sourceTree = "<group>"; };
+		9C24D6511E6376D8003D45F8 /* sfml-network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-network.framework"; path = "Frameworks/sfml-network.framework"; sourceTree = "<group>"; };
+		9C24D6521E6376D8003D45F8 /* sfml-system.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-system.framework"; path = "Frameworks/sfml-system.framework"; sourceTree = "<group>"; };
+		9C24D6531E6376D8003D45F8 /* sfml-window.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-window.framework"; path = "Frameworks/sfml-window.framework"; sourceTree = "<group>"; };
+		9C24D6541E6376D8003D45F8 /* SFML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFML.framework; path = Frameworks/SFML.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9C24D6121E637525003D45F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C24D6551E6376D8003D45F8 /* sfml-audio.framework in Frameworks */,
+				9C24D6561E6376D8003D45F8 /* sfml-graphics.framework in Frameworks */,
+				9C24D6571E6376D8003D45F8 /* sfml-network.framework in Frameworks */,
+				9C24D6581E6376D8003D45F8 /* sfml-system.framework in Frameworks */,
+				9C24D6591E6376D8003D45F8 /* sfml-window.framework in Frameworks */,
+				9C24D65A1E6376D8003D45F8 /* SFML.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9C24D60C1E637525003D45F8 = {
+			isa = PBXGroup;
+			children = (
+				9C24D6171E637526003D45F8 /* CS537PA3 */,
+				9C24D6161E637526003D45F8 /* Products */,
+				9C24D6361E637585003D45F8 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9C24D6161E637526003D45F8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9C24D6151E637526003D45F8 /* CS537PA3 */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9C24D6171E637526003D45F8 /* CS537PA3 */ = {
+			isa = PBXGroup;
+			children = (
+				9C24D61F1E637541003D45F8 /* clipper.cpp */,
+				9C24D6201E637541003D45F8 /* clipper.h */,
+				9C24D6211E637541003D45F8 /* clipTest.cpp */,
+				9C24D6221E637541003D45F8 /* extendedCanvas.cpp */,
+				9C24D6231E637541003D45F8 /* extendedCanvas.h */,
+				9C24D6241E637541003D45F8 /* simpleCanvas.cpp */,
+				9C24D6251E637541003D45F8 /* simpleCanvas.h */,
+			);
+			path = CS537PA3;
+			sourceTree = "<group>";
+		};
+		9C24D6361E637585003D45F8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C24D64F1E6376D8003D45F8 /* sfml-audio.framework */,
+				9C24D6501E6376D8003D45F8 /* sfml-graphics.framework */,
+				9C24D6511E6376D8003D45F8 /* sfml-network.framework */,
+				9C24D6521E6376D8003D45F8 /* sfml-system.framework */,
+				9C24D6531E6376D8003D45F8 /* sfml-window.framework */,
+				9C24D6541E6376D8003D45F8 /* SFML.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9C24D6141E637525003D45F8 /* CS537PA3 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C24D61C1E637526003D45F8 /* Build configuration list for PBXNativeTarget "CS537PA3" */;
+			buildPhases = (
+				9C24D6111E637525003D45F8 /* Sources */,
+				9C24D6121E637525003D45F8 /* Frameworks */,
+				9C24D6131E637525003D45F8 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CS537PA3;
+			productName = CS537PA3;
+			productReference = 9C24D6151E637526003D45F8 /* CS537PA3 */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9C24D60D1E637525003D45F8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Yudong Cao";
+				TargetAttributes = {
+					9C24D6141E637525003D45F8 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = GUU7RMJ73D;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 9C24D6101E637525003D45F8 /* Build configuration list for PBXProject "CS537PA3" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9C24D60C1E637525003D45F8;
+			productRefGroup = 9C24D6161E637526003D45F8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9C24D6141E637525003D45F8 /* CS537PA3 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9C24D6111E637525003D45F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C24D6281E637541003D45F8 /* extendedCanvas.cpp in Sources */,
+				9C24D6291E637541003D45F8 /* simpleCanvas.cpp in Sources */,
+				9C24D6261E637541003D45F8 /* clipper.cpp in Sources */,
+				9C24D6271E637541003D45F8 /* clipTest.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9C24D61A1E637526003D45F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		9C24D61B1E637526003D45F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		9C24D61D1E637526003D45F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = GUU7RMJ73D;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9C24D61E1E637526003D45F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = GUU7RMJ73D;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9C24D6101E637525003D45F8 /* Build configuration list for PBXProject "CS537PA3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C24D61A1E637526003D45F8 /* Debug */,
+				9C24D61B1E637526003D45F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C24D61C1E637526003D45F8 /* Build configuration list for PBXNativeTarget "CS537PA3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C24D61D1E637526003D45F8 /* Debug */,
+				9C24D61E1E637526003D45F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9C24D60D1E637525003D45F8 /* Project object */;
+}
