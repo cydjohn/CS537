@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C6BEED01E5A4B5F00E19763 /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6BEECF1E5A4B5F00E19763 /* test.cpp */; };
+		9C72F6691E6B3F9400A3D33B /* fillTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C72F6641E6B3F9400A3D33B /* fillTest.cpp */; };
+		9C72F66A1E6B3F9400A3D33B /* Rasterizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C72F6651E6B3F9400A3D33B /* Rasterizer.cpp */; };
+		9C72F66B1E6B3F9400A3D33B /* simpleCanvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C72F6671E6B3F9400A3D33B /* simpleCanvas.cpp */; };
 		9CD7F8A21E5526E80095A10E /* sfml-audio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD7F89C1E5526E80095A10E /* sfml-audio.framework */; };
 		9CD7F8A31E5526E80095A10E /* sfml-graphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD7F89D1E5526E80095A10E /* sfml-graphics.framework */; };
 		9CD7F8A41E5526E80095A10E /* sfml-network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD7F89E1E5526E80095A10E /* sfml-network.framework */; };
 		9CD7F8A51E5526E80095A10E /* sfml-system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD7F89F1E5526E80095A10E /* sfml-system.framework */; };
 		9CD7F8A61E5526E80095A10E /* sfml-window.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD7F8A01E5526E80095A10E /* sfml-window.framework */; };
 		9CD7F8A71E5526E80095A10E /* SFML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD7F8A11E5526E80095A10E /* SFML.framework */; };
-		9CD7F8AE1E5526FF0095A10E /* Rasterizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CD7F8A91E5526FF0095A10E /* Rasterizer.cpp */; };
-		9CD7F8AF1E5526FF0095A10E /* simpleCanvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CD7F8AB1E5526FF0095A10E /* simpleCanvas.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,7 +31,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9C6BEECF1E5A4B5F00E19763 /* test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test.cpp; sourceTree = "<group>"; };
+		9C72F6641E6B3F9400A3D33B /* fillTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fillTest.cpp; sourceTree = "<group>"; };
+		9C72F6651E6B3F9400A3D33B /* Rasterizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Rasterizer.cpp; sourceTree = "<group>"; };
+		9C72F6661E6B3F9400A3D33B /* Rasterizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rasterizer.h; sourceTree = "<group>"; };
+		9C72F6671E6B3F9400A3D33B /* simpleCanvas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = simpleCanvas.cpp; sourceTree = "<group>"; };
+		9C72F6681E6B3F9400A3D33B /* simpleCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simpleCanvas.h; sourceTree = "<group>"; };
 		9CD7F8911E5526CA0095A10E /* CS537PA2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CS537PA2; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD7F89C1E5526E80095A10E /* sfml-audio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-audio.framework"; path = "Frameworks/sfml-audio.framework"; sourceTree = "<group>"; };
 		9CD7F89D1E5526E80095A10E /* sfml-graphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-graphics.framework"; path = "Frameworks/sfml-graphics.framework"; sourceTree = "<group>"; };
@@ -39,10 +43,6 @@
 		9CD7F89F1E5526E80095A10E /* sfml-system.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-system.framework"; path = "Frameworks/sfml-system.framework"; sourceTree = "<group>"; };
 		9CD7F8A01E5526E80095A10E /* sfml-window.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-window.framework"; path = "Frameworks/sfml-window.framework"; sourceTree = "<group>"; };
 		9CD7F8A11E5526E80095A10E /* SFML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFML.framework; path = Frameworks/SFML.framework; sourceTree = "<group>"; };
-		9CD7F8A91E5526FF0095A10E /* Rasterizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Rasterizer.cpp; sourceTree = "<group>"; };
-		9CD7F8AA1E5526FF0095A10E /* Rasterizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rasterizer.h; sourceTree = "<group>"; };
-		9CD7F8AB1E5526FF0095A10E /* simpleCanvas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = simpleCanvas.cpp; sourceTree = "<group>"; };
-		9CD7F8AC1E5526FF0095A10E /* simpleCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simpleCanvas.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,11 +82,11 @@
 		9CD7F8931E5526CA0095A10E /* CS537PA2 */ = {
 			isa = PBXGroup;
 			children = (
-				9CD7F8A91E5526FF0095A10E /* Rasterizer.cpp */,
-				9CD7F8AA1E5526FF0095A10E /* Rasterizer.h */,
-				9CD7F8AB1E5526FF0095A10E /* simpleCanvas.cpp */,
-				9CD7F8AC1E5526FF0095A10E /* simpleCanvas.h */,
-				9C6BEECF1E5A4B5F00E19763 /* test.cpp */,
+				9C72F6641E6B3F9400A3D33B /* fillTest.cpp */,
+				9C72F6651E6B3F9400A3D33B /* Rasterizer.cpp */,
+				9C72F6661E6B3F9400A3D33B /* Rasterizer.h */,
+				9C72F6671E6B3F9400A3D33B /* simpleCanvas.cpp */,
+				9C72F6681E6B3F9400A3D33B /* simpleCanvas.h */,
 			);
 			path = CS537PA2;
 			sourceTree = "<group>";
@@ -162,9 +162,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CD7F8AF1E5526FF0095A10E /* simpleCanvas.cpp in Sources */,
-				9C6BEED01E5A4B5F00E19763 /* test.cpp in Sources */,
-				9CD7F8AE1E5526FF0095A10E /* Rasterizer.cpp in Sources */,
+				9C72F66B1E6B3F9400A3D33B /* simpleCanvas.cpp in Sources */,
+				9C72F66A1E6B3F9400A3D33B /* Rasterizer.cpp in Sources */,
+				9C72F6691E6B3F9400A3D33B /* fillTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
