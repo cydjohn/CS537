@@ -12,6 +12,7 @@
 		9C698E351E68FA98000B677B /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C698E341E68FA98000B677B /* OpenGL.framework */; };
 		9C698E3B1E68FAB2000B677B /* helloOpenGL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C698E361E68FAB2000B677B /* helloOpenGL.cpp */; };
 		9C698E3C1E68FAB2000B677B /* shaderSetup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C698E391E68FAB2000B677B /* shaderSetup.cpp */; };
+		9CEC6ED31E6BB1FD0085B528 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CEC6ED21E6BB1FD0085B528 /* AGL.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,6 +37,7 @@
 		9C698E381E68FAB2000B677B /* shader.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = shader.vert; path = CS537PA4/shader.vert; sourceTree = "<group>"; };
 		9C698E391E68FAB2000B677B /* shaderSetup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = shaderSetup.cpp; sourceTree = "<group>"; };
 		9C698E3A1E68FAB2000B677B /* shaderSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shaderSetup.h; sourceTree = "<group>"; };
+		9CEC6ED21E6BB1FD0085B528 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = System/Library/Frameworks/AGL.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CEC6ED31E6BB1FD0085B528 /* AGL.framework in Frameworks */,
 				9C698E351E68FA98000B677B /* OpenGL.framework in Frameworks */,
 				9C698E331E68FA93000B677B /* GLKit.framework in Frameworks */,
 				9C698E311E68FA7F000B677B /* GLUT.framework in Frameworks */,
@@ -84,6 +87,7 @@
 		9C698E2F1E68FA7F000B677B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9CEC6ED21E6BB1FD0085B528 /* AGL.framework */,
 				9C698E341E68FA98000B677B /* OpenGL.framework */,
 				9C698E321E68FA93000B677B /* GLKit.framework */,
 				9C698E301E68FA7F000B677B /* GLUT.framework */,
@@ -248,6 +252,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEVELOPMENT_TEAM = GUU7RMJ73D;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -256,6 +261,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEVELOPMENT_TEAM = GUU7RMJ73D;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -279,6 +285,7 @@
 				9C698E251E68F85C000B677B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

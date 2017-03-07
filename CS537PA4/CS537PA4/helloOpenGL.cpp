@@ -158,7 +158,7 @@ void init()
     glEnable(GL_CULL_FACE);
     glClearColor( 0.0, 0.0, 0.0, 0.0 );
     glCullFace(GL_BACK);
-    //glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
+//    glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
 
     // set up the initial scene
     createShapes();
@@ -238,10 +238,16 @@ void mouse( int button, int state, int x, int y )
 int main (int argc, char **argv)
 {
     glutInit( &argc, argv );
-    glutInitDisplayMode( GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH |GLUT_3_2_CORE_PROFILE );
+    glutInitDisplayMode( GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH| GLUT_3_2_CORE_PROFILE );
     glutInitWindowSize( 512, 512 );
-    glutCreateWindow( "Hello, OpenGL!" );
+    
 
+    // ...
+    
+    glutCreateWindow( "Hello, OpenGL!" );
+    printf("Supported GLSL version is %s.\n", (char *)glGetString(GL_SHADING_LANGUAGE_VERSION));
+    printf("Supported opengl version is %s.\n", (char *)glGetString(GL_VERSION));
+    
 #ifndef __APPLE__
     GLenum err = glewInit();
     if( err != GLEW_OK ) {
