@@ -4,7 +4,7 @@
 //  Created by Srinivas Sridharan on 2/10/17.
 //  Copyright 2017 Stevens Institute of Technology. All rights reserved.
 //
-//  Contributor:  YOUR_NAME_HERE
+//  Contributor:  Yudong Cao
 //
 
 #include "Rasterizer.h"
@@ -12,18 +12,35 @@
 
 using namespace std;
 
+///
+//
+// Simple class that performs rasterization algorithms
+//
+///
+
+///
+// Constructor
+//
+// @param n - number of scanlines
+//
+///
+
+Rasterizer::Rasterizer (int n) : n_scanlines (n)
+{
+}
+
 struct Bucket {
     int yMax;
-    int x;
+    float x;
     int dy;
     int dx;
     int sum;
     int yMin;
-} bucket;
+};
 
 
 
-/// Quick sort globalEdgeTable based on yMin
+/// Quick sort edgeTable based on yMin
 void quickSortET(vector<Bucket> &s, int l, int r)
 {
     if (l < r)
@@ -48,6 +65,7 @@ void quickSortET(vector<Bucket> &s, int l, int r)
     }
 }
 
+
 void sortActiveList(vector<Bucket> &activeEdgeTable) {
     Bucket temp;
     for (int i = 0; i < activeEdgeTable.size(); i++) {
@@ -63,22 +81,8 @@ void sortActiveList(vector<Bucket> &activeEdgeTable) {
 
 
 
-///
-//
-// Simple class that performs rasterization algorithms
-//
-///
 
-///
-// Constructor
-//
-// @param n - number of scanlines
-//
-///
 
-Rasterizer::Rasterizer (int n) : n_scanlines (n)
-{
-}
 
 
 //follow the instruction of https://hackernoon.com/computer-graphics-scan-line-polygon-fill-algorithm-3cb47283df6#.ov2fykf5z
@@ -94,53 +98,33 @@ Rasterizer::Rasterizer (int n) : n_scanlines (n)
 //}
 vector<Bucket> createEdges(int n,int x[],int y[]) {
     vector<Bucket> edgeTable;
-    for (int i = 0; i< n; i++) {
-        if (x[i]-x[(i+1)%n] != 0) {
-            Bucket tempBucket;
-            tempBucket.dx = x[i]-x[(i+1)%n];
-            tempBucket.dy = y[i]-y[(i+1)%n];
-            tempBucket.sum = 0;
-            tempBucket.yMax = y[i+1]<y[i]?y[i]:y[(i+1)%n];
-            tempBucket.yMin = y[i+1]<y[i]?y[(i+1)%n]:y[i];
-            tempBucket.x = y[i+1]<y[i]?x[i]:x[(i+1)%n];
+    Bucket tempBucket;
+    for (int i = 0; i < n; i++) {
+        tempBucket.yMin = min(y[i], y[(i + 1) % n]);
+        tempBucket.yMax = max(y[i], y[(i + 1) % n]);
+        tempBucket.x = (float)(tempBucket.yMin == y[i] ? x[i] : x[(i + 1) % n]);
+        tempBucket.dx = x[i]-x[(i+1)%n];
+        tempBucket.dy = y[i]-y[(i+1)%n];
+        tempBucket.sum = 0;
+        if (tempBucket.dy != 0)
             edgeTable.push_back(tempBucket);
-        }
     }
     return edgeTable;
 }
 
 
 
-
-vector<Bucket> processEdgeTable(vector<Bucket> edgeTable,simpleCanvas &C,int xMAX) {
+vector<Bucket> processEdgeTable(vector<Bucket> edgeTable,simpleCanvas &C) {
     
+    int currentScanLine = edgeTable.at(0).yMin;
     
     vector<Bucket> activeTable;
-    Bucket currentBucket = edgeTable.at(0);
-    int currentScanLine = edgeTable.at(0).yMin;
-    //        // Remove edges from the active list if y == ymax
-    //        if (active list is NOT empty) {
-    //            for (iterate through all buckets in the active list) {
-    //                if (current bucket's ymax == current scanline) {
-    //                    remove bucket from active list
-    //                    remove bucket from edge table
-    //                    }
-    //                    }
-    //                    }
-    for (int i = 0; i < edgeTable.size(); i ++) {
-        
-        
-        if (activeTable.size() != 0) {
-            for (int j = 0; j< activeTable.size(); j++) {
-                if (currentBucket.yMax == currentScanLine) {
-                    activeTable.erase(activeTable.begin() + j);
-                    edgeTable.erase(edgeTable.begin()+j);
-                }
-            }
-        }
-        
-        
-        
+
+    int maxLine = edgeTable.at(edgeTable.size() - 1).yMax;
+    int xMax ;
+    
+    
+    for (int i = currentScanLine; i < maxLine; i++) {
         //    // Add edge from edge table to active list if y == ymin
         //    for (iterate through the bucket in the edge table) {
         //        if (bucket's ymin == scanline) {
@@ -148,13 +132,33 @@ vector<Bucket> processEdgeTable(vector<Bucket> edgeTable,simpleCanvas &C,int xMA
         //            }
         //            }
         
-        for (int i = 0; i<edgeTable.size(); i++) {
-            if (edgeTable.at(i).yMin == currentScanLine) {
-                activeTable.push_back(edgeTable.at(i));
+        for (int j = 0; j<edgeTable.size();j++ ) {
+            xMax = xMax>edgeTable.at(j).x?xMax:edgeTable.at(j).x;
+            if (edgeTable.at(j).yMin == i) {
+                activeTable.push_back(edgeTable.at(j));
+                edgeTable.erase(edgeTable.begin() + j);
+                j--;
             }
         }
         
-        //     Sort active list by x position and slope
+        
+        //        // Remove edges from the active list if y == ymax
+        //        if (active list is NOT empty) {
+        //            for (iterate through all buckets in the active list) {
+        //                if (current bucket's ymax == current scanline) {
+        //                    remove bucket from active list
+        //                    remove bucket from edge table
+        //                    }
+        //                    }
+        //                    }
+        for (int j = 0; j< activeTable.size(); j++) {
+            if (activeTable.at(j).yMax == i) {
+                activeTable.erase(activeTable.begin() + j);
+                j--;
+            }
+        }
+
+//     Sort active list by x position
         sortActiveList(activeTable);
         
         
@@ -164,57 +168,38 @@ vector<Bucket> processEdgeTable(vector<Bucket> edgeTable,simpleCanvas &C,int xMA
         //            setPixelColor()
         //        }
         //    }
+        
         int currentEdge = 0;
-        int parity = 0;
-        int maxLine = edgeTable.at(edgeTable.size() - 1).yMax;
-        
-        
-        for (int line = currentScanLine; line <= maxLine; line++) {
-        for (int i = 0; i<xMAX; i++) {
-            //        if (i == int(activeTable.at(currentEdge).x)) {
-                        if (currentEdge + 1 < activeTable.size() && i != int(activeTable.at(currentEdge+1).x)) {
-                            if (parity == 1) {
-                                parity = 0;
-                            }
-                            else{
-                                parity = 1;
-                            }
-                        }
-                    while (currentEdge < activeTable.size() ){//&& i == int(activeTable.at(currentEdge).x)) {
-                            Bucket temp = activeTable.at(currentEdge);
-                            if (temp.dy != 0) {
-                                temp.x = temp.x + temp.dx/temp.dy;
-                            }
-                            activeTable.at(currentEdge) = temp;
-                            C.setPixel(i, line);
-                            currentEdge ++;
-                        }
-            //        }
-                    if (parity == 0) {
-                        C.setPixel(i, line);
+        for (int scanX = 0; scanX <= xMax && currentEdge < activeTable.size(); scanX++) {
+            if (scanX == int(activeTable.at(currentEdge).x + 0.5)) {
+                if (currentEdge + 1 < activeTable.size() && scanX != int(activeTable.at(currentEdge + 1).x + 0.5)) {
+                    for (int i = currentEdge+1; i < activeTable.size(); i++) {
+                        activeTable.at(i).sum+=1;
                     }
-            //
-            
+                }
+                
+                while (currentEdge < activeTable.size() && scanX == int(activeTable.at(currentEdge).x + 0.5)) {
+                    
+                    Bucket b = activeTable.at(currentEdge);
+                    //                  If the edge's slope is vertical
+                    if (b.dy != 0) {
+                        b.x = b.x + float(b.dx)/float(b.dy);
+                    }
+                    else {
+                        //vertical slope
+                        b.x = 1000000.0;
+                    }
+                    activeTable.at(currentEdge) = b;
+                    C.setPixel(scanX, i);
+                    currentEdge++;
+                }
+            }
+            if ((currentEdge<activeTable.size()&&activeTable.at(currentEdge).sum)) {
+                C.setPixel(scanX, i);
+            }
             
         }
-        }
-        
-        
-        //    // Increment X variables of buckets based on the slope
-        //    for (all buckets in the active list) {
-        //        if (bucketsdX != 0) {
-        //            bucket's sum += bucket's dX
-        //            while (bucket's sum >= bucket's dY) {
-        //                increment or decrement bucket's X depending on sign of bucket's slope
-        //                edge's sum -= dY
-        //            }
-        //        }
-        //    }
-        
     }
-    
-    
-    
     return edgeTable;
 }
 
@@ -232,11 +217,10 @@ vector<Bucket> processEdgeTable(vector<Bucket> edgeTable,simpleCanvas &C,int xMA
 void Rasterizer::drawPolygon(int n, int x[], int y[], simpleCanvas &C)
 {
     // YOUR IMPLEMENTATION GOES HERE
-    int xMax = *max_element(x, x + n);
     vector<Bucket> ET = createEdges(n, x, y);
     
     quickSortET(ET, 0, int(ET.size()-1));
     
-    processEdgeTable(ET, C,xMax);
+    processEdgeTable(ET, C);
     
 }

@@ -4,7 +4,7 @@
 //  Created by Srinivas Sridharan on 2/10/17.
 //  Copyright 2017 Stevens Institute of Technology. All rights reserved.
 //
-//  Contributor:  YOUR_NAME_HERE
+//  Contributor:  Yudong Cao
 //
 
 #ifndef _RASTERIZER_H
