@@ -81,12 +81,6 @@ void sortActiveList(vector<Bucket> &activeEdgeTable) {
 
 
 
-
-
-
-
-//follow the instruction of https://hackernoon.com/computer-graphics-scan-line-polygon-fill-algorithm-3cb47283df6#.ov2fykf5z
-
 //createEdges(n, x[], y[]) {
 //    instantiate a new edge table
 //    loop through x[] & y[] pairs {
@@ -163,11 +157,7 @@ vector<Bucket> processEdgeTable(vector<Bucket> edgeTable,simpleCanvas &C) {
         
         
         //    // Fill the polygon pixel
-        //    for (iterate through the active list) {
-        //        for (from vertex1.x to vertex2.x of the bucket) {
-        //            setPixelColor()
-        //        }
-        //    }
+
         
         int currentEdge = 0;
         for (int scanX = 0; scanX <= xMax && currentEdge < activeTable.size(); scanX++) {
@@ -222,5 +212,4 @@ void Rasterizer::drawPolygon(int n, int x[], int y[], simpleCanvas &C)
     quickSortET(ET, 0, int(ET.size()-1));
     
     processEdgeTable(ET, C);
-    
 }

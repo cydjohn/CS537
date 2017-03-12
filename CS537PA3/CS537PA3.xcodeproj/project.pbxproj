@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C24D6261E637541003D45F8 /* clipper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C24D61F1E637541003D45F8 /* clipper.cpp */; };
-		9C24D6271E637541003D45F8 /* clipTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C24D6211E637541003D45F8 /* clipTest.cpp */; };
-		9C24D6281E637541003D45F8 /* extendedCanvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C24D6221E637541003D45F8 /* extendedCanvas.cpp */; };
-		9C24D6291E637541003D45F8 /* simpleCanvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C24D6241E637541003D45F8 /* simpleCanvas.cpp */; };
 		9C24D6551E6376D8003D45F8 /* sfml-audio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C24D64F1E6376D8003D45F8 /* sfml-audio.framework */; };
 		9C24D6561E6376D8003D45F8 /* sfml-graphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C24D6501E6376D8003D45F8 /* sfml-graphics.framework */; };
 		9C24D6571E6376D8003D45F8 /* sfml-network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C24D6511E6376D8003D45F8 /* sfml-network.framework */; };
 		9C24D6581E6376D8003D45F8 /* sfml-system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C24D6521E6376D8003D45F8 /* sfml-system.framework */; };
 		9C24D6591E6376D8003D45F8 /* sfml-window.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C24D6531E6376D8003D45F8 /* sfml-window.framework */; };
 		9C24D65A1E6376D8003D45F8 /* SFML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C24D6541E6376D8003D45F8 /* SFML.framework */; };
+		9C4680201E70A5E2009D76A1 /* clipper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C4680191E70A5E2009D76A1 /* clipper.cpp */; };
+		9C4680211E70A5E2009D76A1 /* clipTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C46801B1E70A5E2009D76A1 /* clipTest.cpp */; };
+		9C4680221E70A5E2009D76A1 /* extendedCanvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C46801C1E70A5E2009D76A1 /* extendedCanvas.cpp */; };
+		9C4680231E70A5E2009D76A1 /* simpleCanvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C46801E1E70A5E2009D76A1 /* simpleCanvas.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,19 +33,19 @@
 
 /* Begin PBXFileReference section */
 		9C24D6151E637526003D45F8 /* CS537PA3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CS537PA3; sourceTree = BUILT_PRODUCTS_DIR; };
-		9C24D61F1E637541003D45F8 /* clipper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = clipper.cpp; sourceTree = "<group>"; };
-		9C24D6201E637541003D45F8 /* clipper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = clipper.h; sourceTree = "<group>"; };
-		9C24D6211E637541003D45F8 /* clipTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = clipTest.cpp; sourceTree = "<group>"; };
-		9C24D6221E637541003D45F8 /* extendedCanvas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = extendedCanvas.cpp; sourceTree = "<group>"; };
-		9C24D6231E637541003D45F8 /* extendedCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = extendedCanvas.h; sourceTree = "<group>"; };
-		9C24D6241E637541003D45F8 /* simpleCanvas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = simpleCanvas.cpp; sourceTree = "<group>"; };
-		9C24D6251E637541003D45F8 /* simpleCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simpleCanvas.h; sourceTree = "<group>"; };
 		9C24D64F1E6376D8003D45F8 /* sfml-audio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-audio.framework"; path = "Frameworks/sfml-audio.framework"; sourceTree = "<group>"; };
 		9C24D6501E6376D8003D45F8 /* sfml-graphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-graphics.framework"; path = "Frameworks/sfml-graphics.framework"; sourceTree = "<group>"; };
 		9C24D6511E6376D8003D45F8 /* sfml-network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-network.framework"; path = "Frameworks/sfml-network.framework"; sourceTree = "<group>"; };
 		9C24D6521E6376D8003D45F8 /* sfml-system.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-system.framework"; path = "Frameworks/sfml-system.framework"; sourceTree = "<group>"; };
 		9C24D6531E6376D8003D45F8 /* sfml-window.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-window.framework"; path = "Frameworks/sfml-window.framework"; sourceTree = "<group>"; };
 		9C24D6541E6376D8003D45F8 /* SFML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFML.framework; path = Frameworks/SFML.framework; sourceTree = "<group>"; };
+		9C4680191E70A5E2009D76A1 /* clipper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = clipper.cpp; sourceTree = "<group>"; };
+		9C46801A1E70A5E2009D76A1 /* clipper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = clipper.h; sourceTree = "<group>"; };
+		9C46801B1E70A5E2009D76A1 /* clipTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = clipTest.cpp; sourceTree = "<group>"; };
+		9C46801C1E70A5E2009D76A1 /* extendedCanvas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = extendedCanvas.cpp; sourceTree = "<group>"; };
+		9C46801D1E70A5E2009D76A1 /* extendedCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = extendedCanvas.h; sourceTree = "<group>"; };
+		9C46801E1E70A5E2009D76A1 /* simpleCanvas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = simpleCanvas.cpp; sourceTree = "<group>"; };
+		9C46801F1E70A5E2009D76A1 /* simpleCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simpleCanvas.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,13 +85,13 @@
 		9C24D6171E637526003D45F8 /* CS537PA3 */ = {
 			isa = PBXGroup;
 			children = (
-				9C24D61F1E637541003D45F8 /* clipper.cpp */,
-				9C24D6201E637541003D45F8 /* clipper.h */,
-				9C24D6211E637541003D45F8 /* clipTest.cpp */,
-				9C24D6221E637541003D45F8 /* extendedCanvas.cpp */,
-				9C24D6231E637541003D45F8 /* extendedCanvas.h */,
-				9C24D6241E637541003D45F8 /* simpleCanvas.cpp */,
-				9C24D6251E637541003D45F8 /* simpleCanvas.h */,
+				9C4680191E70A5E2009D76A1 /* clipper.cpp */,
+				9C46801A1E70A5E2009D76A1 /* clipper.h */,
+				9C46801B1E70A5E2009D76A1 /* clipTest.cpp */,
+				9C46801C1E70A5E2009D76A1 /* extendedCanvas.cpp */,
+				9C46801D1E70A5E2009D76A1 /* extendedCanvas.h */,
+				9C46801E1E70A5E2009D76A1 /* simpleCanvas.cpp */,
+				9C46801F1E70A5E2009D76A1 /* simpleCanvas.h */,
 			);
 			path = CS537PA3;
 			sourceTree = "<group>";
@@ -167,10 +167,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C24D6281E637541003D45F8 /* extendedCanvas.cpp in Sources */,
-				9C24D6291E637541003D45F8 /* simpleCanvas.cpp in Sources */,
-				9C24D6261E637541003D45F8 /* clipper.cpp in Sources */,
-				9C24D6271E637541003D45F8 /* clipTest.cpp in Sources */,
+				9C4680201E70A5E2009D76A1 /* clipper.cpp in Sources */,
+				9C4680211E70A5E2009D76A1 /* clipTest.cpp in Sources */,
+				9C4680221E70A5E2009D76A1 /* extendedCanvas.cpp in Sources */,
+				9C4680231E70A5E2009D76A1 /* simpleCanvas.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +309,7 @@
 				9C24D61E1E637526003D45F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

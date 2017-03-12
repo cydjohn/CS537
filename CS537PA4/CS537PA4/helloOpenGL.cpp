@@ -157,6 +157,7 @@ void init()
     glEnable( GL_DEPTH_TEST );
     glEnable(GL_CULL_FACE);
     glClearColor( 0.0, 0.0, 0.0, 0.0 );
+//    glClear(GL_COLOR_BUFFER_BIT);
     glCullFace(GL_BACK);
 //    glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
 

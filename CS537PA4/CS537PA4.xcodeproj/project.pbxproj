@@ -7,13 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C698E311E68FA7F000B677B /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C698E301E68FA7F000B677B /* GLUT.framework */; };
-		9C698E331E68FA93000B677B /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C698E321E68FA93000B677B /* GLKit.framework */; };
-		9C698E351E68FA98000B677B /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C698E341E68FA98000B677B /* OpenGL.framework */; };
+		9C4680261E70CBAE009D76A1 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C698E341E68FA98000B677B /* OpenGL.framework */; };
+		9C4680271E70CBBA009D76A1 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C698E301E68FA7F000B677B /* GLUT.framework */; };
 		9C698E3B1E68FAB2000B677B /* helloOpenGL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C698E361E68FAB2000B677B /* helloOpenGL.cpp */; };
 		9C698E3C1E68FAB2000B677B /* shaderSetup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C698E391E68FAB2000B677B /* shaderSetup.cpp */; };
-		9CEC6ED31E6BB1FD0085B528 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CEC6ED21E6BB1FD0085B528 /* AGL.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		9C4680241E70CB2A009D76A1 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = sourcecode.opencl;
+			isEditable = 1;
+			outputFiles = (
+			);
+			script = "# <com.apple.compilers.opencl>\n";
+		};
+		9C4680251E70CB4D009D76A1 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = sourcecode.opencl;
+			isEditable = 1;
+			outputFiles = (
+			);
+			script = "# <com.apple.compilers.opencl>\n";
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		9C698E1A1E68F85C000B677B /* CopyFiles */ = {
@@ -45,10 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CEC6ED31E6BB1FD0085B528 /* AGL.framework in Frameworks */,
-				9C698E351E68FA98000B677B /* OpenGL.framework in Frameworks */,
-				9C698E331E68FA93000B677B /* GLKit.framework in Frameworks */,
-				9C698E311E68FA7F000B677B /* GLUT.framework in Frameworks */,
+				9C4680271E70CBBA009D76A1 /* GLUT.framework in Frameworks */,
+				9C4680261E70CBAE009D76A1 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +124,8 @@
 				9C698E1A1E68F85C000B677B /* CopyFiles */,
 			);
 			buildRules = (
+				9C4680251E70CB4D009D76A1 /* PBXBuildRule */,
+				9C4680241E70CB2A009D76A1 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -126,7 +145,7 @@
 				TargetAttributes = {
 					9C698E1B1E68F85C000B677B = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = GUU7RMJ73D;
+						DevelopmentTeam = R6QT78D99U;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -201,7 +220,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -242,7 +261,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};
@@ -251,8 +270,9 @@
 		9C698E241E68F85C000B677B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = GUU7RMJ73D;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = R6QT78D99U;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -260,8 +280,9 @@
 		9C698E251E68F85C000B677B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = GUU7RMJ73D;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = R6QT78D99U;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
