@@ -1,0 +1,313 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9C5F438C1E7C5034008682BC /* clipper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C5F43881E7C5034008682BC /* clipper.cpp */; };
+		9C5F438D1E7C5034008682BC /* simpleCanvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C5F438A1E7C5034008682BC /* simpleCanvas.cpp */; };
+		9C5F43901E7C504D008682BC /* Rasterizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C5F438E1E7C504D008682BC /* Rasterizer.cpp */; };
+		9C5F43981E7C50F4008682BC /* sfml-audio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5F43921E7C50F4008682BC /* sfml-audio.framework */; };
+		9C5F43991E7C50F4008682BC /* sfml-graphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5F43931E7C50F4008682BC /* sfml-graphics.framework */; };
+		9C5F439A1E7C50F4008682BC /* sfml-network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5F43941E7C50F4008682BC /* sfml-network.framework */; };
+		9C5F439B1E7C50F4008682BC /* sfml-system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5F43951E7C50F4008682BC /* sfml-system.framework */; };
+		9C5F439C1E7C50F4008682BC /* sfml-window.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5F43961E7C50F4008682BC /* sfml-window.framework */; };
+		9C5F439D1E7C50F4008682BC /* SFML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5F43971E7C50F4008682BC /* SFML.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9C5F437C1E7C5000008682BC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		9C5F437E1E7C5000008682BC /* CS537Mid */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CS537Mid; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C5F43881E7C5034008682BC /* clipper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = clipper.cpp; sourceTree = "<group>"; };
+		9C5F43891E7C5034008682BC /* clipper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = clipper.h; sourceTree = "<group>"; };
+		9C5F438A1E7C5034008682BC /* simpleCanvas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = simpleCanvas.cpp; sourceTree = "<group>"; };
+		9C5F438B1E7C5034008682BC /* simpleCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simpleCanvas.h; sourceTree = "<group>"; };
+		9C5F438E1E7C504D008682BC /* Rasterizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Rasterizer.cpp; sourceTree = "<group>"; };
+		9C5F438F1E7C504D008682BC /* Rasterizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rasterizer.h; sourceTree = "<group>"; };
+		9C5F43921E7C50F4008682BC /* sfml-audio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-audio.framework"; path = "Frameworks/sfml-audio.framework"; sourceTree = "<group>"; };
+		9C5F43931E7C50F4008682BC /* sfml-graphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-graphics.framework"; path = "Frameworks/sfml-graphics.framework"; sourceTree = "<group>"; };
+		9C5F43941E7C50F4008682BC /* sfml-network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-network.framework"; path = "Frameworks/sfml-network.framework"; sourceTree = "<group>"; };
+		9C5F43951E7C50F4008682BC /* sfml-system.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-system.framework"; path = "Frameworks/sfml-system.framework"; sourceTree = "<group>"; };
+		9C5F43961E7C50F4008682BC /* sfml-window.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-window.framework"; path = "Frameworks/sfml-window.framework"; sourceTree = "<group>"; };
+		9C5F43971E7C50F4008682BC /* SFML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFML.framework; path = Frameworks/SFML.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9C5F437B1E7C5000008682BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C5F43981E7C50F4008682BC /* sfml-audio.framework in Frameworks */,
+				9C5F43991E7C50F4008682BC /* sfml-graphics.framework in Frameworks */,
+				9C5F439A1E7C50F4008682BC /* sfml-network.framework in Frameworks */,
+				9C5F439B1E7C50F4008682BC /* sfml-system.framework in Frameworks */,
+				9C5F439C1E7C50F4008682BC /* sfml-window.framework in Frameworks */,
+				9C5F439D1E7C50F4008682BC /* SFML.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9C5F43751E7C5000008682BC = {
+			isa = PBXGroup;
+			children = (
+				9C5F43801E7C5000008682BC /* CS537Mid */,
+				9C5F437F1E7C5000008682BC /* Products */,
+				9C5F43911E7C50F4008682BC /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9C5F437F1E7C5000008682BC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9C5F437E1E7C5000008682BC /* CS537Mid */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9C5F43801E7C5000008682BC /* CS537Mid */ = {
+			isa = PBXGroup;
+			children = (
+				9C5F438E1E7C504D008682BC /* Rasterizer.cpp */,
+				9C5F438F1E7C504D008682BC /* Rasterizer.h */,
+				9C5F43881E7C5034008682BC /* clipper.cpp */,
+				9C5F43891E7C5034008682BC /* clipper.h */,
+				9C5F438A1E7C5034008682BC /* simpleCanvas.cpp */,
+				9C5F438B1E7C5034008682BC /* simpleCanvas.h */,
+			);
+			path = CS537Mid;
+			sourceTree = "<group>";
+		};
+		9C5F43911E7C50F4008682BC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C5F43921E7C50F4008682BC /* sfml-audio.framework */,
+				9C5F43931E7C50F4008682BC /* sfml-graphics.framework */,
+				9C5F43941E7C50F4008682BC /* sfml-network.framework */,
+				9C5F43951E7C50F4008682BC /* sfml-system.framework */,
+				9C5F43961E7C50F4008682BC /* sfml-window.framework */,
+				9C5F43971E7C50F4008682BC /* SFML.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9C5F437D1E7C5000008682BC /* CS537Mid */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C5F43851E7C5000008682BC /* Build configuration list for PBXNativeTarget "CS537Mid" */;
+			buildPhases = (
+				9C5F437A1E7C5000008682BC /* Sources */,
+				9C5F437B1E7C5000008682BC /* Frameworks */,
+				9C5F437C1E7C5000008682BC /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CS537Mid;
+			productName = CS537Mid;
+			productReference = 9C5F437E1E7C5000008682BC /* CS537Mid */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9C5F43761E7C5000008682BC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Yudong Cao";
+				TargetAttributes = {
+					9C5F437D1E7C5000008682BC = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = GUU7RMJ73D;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 9C5F43791E7C5000008682BC /* Build configuration list for PBXProject "CS537Mid" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9C5F43751E7C5000008682BC;
+			productRefGroup = 9C5F437F1E7C5000008682BC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9C5F437D1E7C5000008682BC /* CS537Mid */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9C5F437A1E7C5000008682BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C5F43901E7C504D008682BC /* Rasterizer.cpp in Sources */,
+				9C5F438D1E7C5034008682BC /* simpleCanvas.cpp in Sources */,
+				9C5F438C1E7C5034008682BC /* clipper.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9C5F43831E7C5000008682BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		9C5F43841E7C5000008682BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		9C5F43861E7C5000008682BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = GUU7RMJ73D;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/include";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9C5F43871E7C5000008682BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = GUU7RMJ73D;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/include";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9C5F43791E7C5000008682BC /* Build configuration list for PBXProject "CS537Mid" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C5F43831E7C5000008682BC /* Debug */,
+				9C5F43841E7C5000008682BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C5F43851E7C5000008682BC /* Build configuration list for PBXNativeTarget "CS537Mid" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C5F43861E7C5000008682BC /* Debug */,
+				9C5F43871E7C5000008682BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9C5F43761E7C5000008682BC /* Project object */;
+}
