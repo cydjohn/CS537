@@ -38,18 +38,26 @@ bool inside(Vertices vertices, Boundary boundary) {
     if (boundary.lly == boundary.ury) {
         //horizontal
         if (boundary.llx<boundary.urx) {
-            return vertices.y >= boundary.lly;
+            if (vertices.y >= boundary.lly){
+                return true;
+            }
         }
-        if (boundary.llx>boundary.urx) {
-            return vertices.y <= boundary.lly;
+        else if (boundary.llx>boundary.urx) {
+            if( vertices.y <= boundary.lly) {
+                return true;
+            }
         }
         // vertical
     } else {
         if (boundary.ury > boundary.lly) {
-            return vertices.x <= boundary.llx;
+            if( vertices.x <= boundary.llx) {
+                return true;
+            }
         }
-        if (boundary.ury < boundary.lly) {
-            return vertices.x >= boundary.llx;
+        else if (boundary.ury < boundary.lly) {
+            if (vertices.x >= boundary.llx) {
+                return true;
+            }
         }
     }
     return false;
@@ -62,13 +70,17 @@ void output(Vertices point,int &length,Vertices vector[]) {
 }
 
 void intersect(Vertices spoint,Vertices epoint,Boundary boundary,Vertices &newpoint) {
+    // vertical
     if (boundary.llx == boundary.urx) {
         newpoint.x = boundary.llx;
-        newpoint.y = spoint.y +(boundary.llx - spoint.x) * (epoint.y - spoint.y) / (epoint.x - spoint.x);
+        newpoint.y = spoint.y + (boundary.llx - spoint.x) *
+                    (epoint.y - spoint.y) / (epoint.x - spoint.x);
     }
+    //horizontal
     else {
         newpoint.y = boundary.lly;
-        newpoint.x = spoint.x +(boundary.lly - spoint.y) * (epoint.x - spoint.x) / (epoint.y - spoint.y);
+        newpoint.x = spoint.x + (boundary.lly - spoint.y) *
+                    (epoint.x - spoint.x) / (epoint.y - spoint.y);
     }
 }
 
@@ -133,6 +145,8 @@ int clipper::clipPolygon(int in, const float inx[], const float iny[],
                          float llx, float lly, float urx, float ury)
 {
     // YOUR IMPLEMENTATION GOES HERE
+    
+    
     int outLength1 = 0, outLength2 = 0, outLength3 = 0, outLength4 = 0;
     
     Vertices *out2, *out3, *out4;
@@ -164,8 +178,6 @@ int clipper::clipPolygon(int in, const float inx[], const float iny[],
         outy[i] = out4[i].y;
     }
     
-    outLength1 = outLength4;
-    
-    return outLength1;  // should return number of vertices in clipped poly.
+    return outLength4;  // should return number of vertices in clipped poly.
     
 }

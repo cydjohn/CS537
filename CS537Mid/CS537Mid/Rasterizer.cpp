@@ -158,20 +158,25 @@ vector<Bucket> processEdgeTable(vector<Bucket> edgeTable,simpleCanvas &C) {
         
 //     Fill the polygon pixel
 
+        enum {
+            EVEN, ODD
+        };
         
+        int parity = 0;
         int currentEdge = 0;
         for (int scanX = 0; scanX <= xMax && currentEdge < activeTable.size(); scanX++) {
             if (scanX == int(activeTable.at(currentEdge).x + 0.5)) {
                 if (currentEdge + 1 < activeTable.size() && scanX != int(activeTable.at(currentEdge + 1).x + 0.5)) {
-                    for (int i = currentEdge+1; i < activeTable.size(); i++) {
-                        activeTable.at(i).sum+=1;
-                    }
+                    parity = (parity == EVEN) ? ODD : EVEN;
+//                    for (int i = currentEdge+1; i < activeTable.size(); i++) {
+//                        activeTable.at(i).sum+=1;
+//                    }
                 }
                 
                 while (currentEdge < activeTable.size() && scanX == int(activeTable.at(currentEdge).x + 0.5)) {
                     
                     Bucket b = activeTable.at(currentEdge);
-                    //                  If the edge's slope is vertical
+//                  If the edge's slope is vertical
                     if (b.dy != 0) {
                         b.x = b.x + float(b.dx)/float(b.dy);
                     }
@@ -180,11 +185,17 @@ vector<Bucket> processEdgeTable(vector<Bucket> edgeTable,simpleCanvas &C) {
                         b.x = 1000000.0;
                     }
                     activeTable.at(currentEdge) = b;
-                    C.setPixel(scanX, i);
+                    if (i<activeTable.size()) {
+                        C.setPixel(scanX, i);
+                    }
+                    
                     currentEdge++;
                 }
             }
-            if ((currentEdge<activeTable.size()&&activeTable.at(currentEdge).sum)) {
+//            if (((currentEdge<activeTable.size())&&(activeTable.at(currentEdge).sum%2==1))) {
+//                C.setPixel(scanX, i);
+//            }
+            if (parity == ODD && scanX < xMax && currentEdge<activeTable.size()) {
                 C.setPixel(scanX, i);
             }
             
