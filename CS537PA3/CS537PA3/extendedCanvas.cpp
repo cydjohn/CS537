@@ -64,7 +64,7 @@ void extendedCanvas::printPoly (int n, const float x[], const float y[] )
     P.setOutlineThickness( 1 );
 
     for (int i=0; i < n; i++)
-        P.setPoint( i, sf::Vector2f(x[i], height - y[i]) );
+        P.setPoint( i, sf::Vector2f(x[i], height - y[i]));
 
     polys.push_back (P);
 }

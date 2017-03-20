@@ -11,51 +11,79 @@
 #include <SFML/Graphics/ConvexShape.hpp>
 
 #include "extendedCanvas.hpp"
+#include "Rasterizer.h"
+#include "clipper.h"
+#include "cmatrix"
 
 
 extendedCanvas::extendedCanvas(int w, int h) : simpleCanvas(w,h)
 {
 }
 
-void extendedCanvas::printLoop (int n, const float x[], const float y[] )
+typedef techsoft::matrix<float> Matrix;
+
+clipper::Boundary clipWindow;
+
+
+void draw(sf::ConvexShape poly)
 {
-    sf::ConvexShape P;
-    P.setPointCount( n );
-    P.setOutlineColor( myColor );
-    P.setOutlineThickness( 1 );
-    
-    for( int i=0; i < n; i++ )
-        P.setPoint( i, sf::Vector2f(x[i], height - y[i]) );
-    
-    // print it as a polygon whose body is transparent
-    P.setFillColor( sf::Color::Transparent );
-    polys.push_back (P);
-}
 
-
-void extendedCanvas::printPoly (int n, const float x[], const float y[] )
-{
-    sf::ConvexShape P;
-    P.setPointCount( n );
-    P.setFillColor( myColor );
-    P.setOutlineColor( myColor );
-    P.setOutlineThickness( 1 );
+    int n = poly.getPointCount();
     
-    for (int i=0; i < n; i++)
-        P.setPoint( i, sf::Vector2f(x[i], height - y[i]) );
+    // set inx[] and iny[] and apply transformation
+    float *inx = new float[n],
+    *iny = new float[n];
     
-    polys.push_back (P);
-}
-
-
-void extendedCanvas::draw (sf::RenderWindow &R)
-{
-    // draw as usual
-    simpleCanvas::draw (R);
+    Matrix m;
+    sf::Vector2<float> coord;
     
-    // draw your polys
-    vector<sf::ConvexShape>::iterator it;
-    for (it = polys.begin(); it != polys.end(); it++) {
-        R.draw ((*it));
+    for (int i = 0; i < n; i++)
+    {
+        coord = sf::Vector2<float>(poly.getPoint(i));
+        // compute the coordinates of the point after the transformation
+        m = Matrix(3, 1, {coord.x, coord.y, 1});
+        m = currentTransform * m;
+        inx[i] = m[0][0];
+        iny[i] = m[1][0];
     }
+    
+    // set in
+    int in = poly.getPointCount();
+    
+    // set outx[] and outy[]
+    float *outx = new float[in],
+    *outy = new float[in];
+    
+    clipper clip;
+    // clip
+    n = clip.clipPolygon(in, inx, iny, outx, outy, clipWindow.llx, clipWindow.lly, clipWindow.urx, clipWindow.ury);
+    
+    delete[] inx, iny; // dynamic allocation
+    
+    // object that contain the drawPolygon
+    Rasterizer rast = Rasterizer(n);
+    
+    int *x = new int[n],
+    *y = new int[n];
+    
+    /*
+     VXmin = x;
+     VXmax = width;
+     VYmin = y;
+     VYmax = height;*/
+    for (int i = 0; i < n; i++)
+    {
+        m = Matrix(3, 1, {outx[i], outy[i], 1});
+        // let's normalize !
+        float x_normalized = ((m[0][0] - clipWindow[2]) / (clipWindow[3] - clipWindow[2])) * viewWindow[2] + viewWindow[0],
+        y_normalized = ((m[1][0] - clipWindow[0]) / (clipWindow[1] - clipWindow[0])) * viewWindow[3] + viewWindow[1];
+        x[i] = round(x_normalized);
+        y[i] = round(y_normalized);
+    }
+    
+    // draw
+    rast.drawPolygon(n, x, y, *this);
+    //drawOutline(n, x, y);
+    
+    delete[] x, y, outx, outy;
 }

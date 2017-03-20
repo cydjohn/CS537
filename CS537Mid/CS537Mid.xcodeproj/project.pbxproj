@@ -17,8 +17,7 @@
 		9C5F439C1E7C50F4008682BC /* sfml-window.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5F43961E7C50F4008682BC /* sfml-window.framework */; };
 		9C5F439D1E7C50F4008682BC /* SFML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5F43971E7C50F4008682BC /* SFML.framework */; };
 		9C5F43C61E7CAB4F008682BC /* extendedCanvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C5F43C41E7CAB4F008682BC /* extendedCanvas.cpp */; };
-		9C5F43CA1E7CB0F0008682BC /* cgCanvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C5F43C71E7CB0F0008682BC /* cgCanvas.cpp */; };
-		9C5F43CB1E7CB0F0008682BC /* midtermMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C5F43C91E7CB0F0008682BC /* midtermMain.cpp */; };
+		9CF005F21E806C110089B3CA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CF005F11E806C110089B3CA /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,9 +48,7 @@
 		9C5F43971E7C50F4008682BC /* SFML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFML.framework; path = Frameworks/SFML.framework; sourceTree = "<group>"; };
 		9C5F43C41E7CAB4F008682BC /* extendedCanvas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = extendedCanvas.cpp; sourceTree = "<group>"; };
 		9C5F43C51E7CAB4F008682BC /* extendedCanvas.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = extendedCanvas.hpp; sourceTree = "<group>"; };
-		9C5F43C71E7CB0F0008682BC /* cgCanvas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cgCanvas.cpp; sourceTree = "<group>"; };
-		9C5F43C81E7CB0F0008682BC /* cgCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cgCanvas.h; sourceTree = "<group>"; };
-		9C5F43C91E7CB0F0008682BC /* midtermMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = midtermMain.cpp; sourceTree = "<group>"; };
+		9CF005F11E806C110089B3CA /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,9 +88,6 @@
 		9C5F43801E7C5000008682BC /* CS537Mid */ = {
 			isa = PBXGroup;
 			children = (
-				9C5F43C71E7CB0F0008682BC /* cgCanvas.cpp */,
-				9C5F43C81E7CB0F0008682BC /* cgCanvas.h */,
-				9C5F43C91E7CB0F0008682BC /* midtermMain.cpp */,
 				9C5F438E1E7C504D008682BC /* Rasterizer.cpp */,
 				9C5F438F1E7C504D008682BC /* Rasterizer.h */,
 				9C5F43881E7C5034008682BC /* clipper.cpp */,
@@ -102,6 +96,7 @@
 				9C5F438B1E7C5034008682BC /* simpleCanvas.h */,
 				9C5F43C41E7CAB4F008682BC /* extendedCanvas.cpp */,
 				9C5F43C51E7CAB4F008682BC /* extendedCanvas.hpp */,
+				9CF005F11E806C110089B3CA /* main.cpp */,
 			);
 			path = CS537Mid;
 			sourceTree = "<group>";
@@ -180,8 +175,7 @@
 				9C5F43901E7C504D008682BC /* Rasterizer.cpp in Sources */,
 				9C5F438D1E7C5034008682BC /* simpleCanvas.cpp in Sources */,
 				9C5F43C61E7CAB4F008682BC /* extendedCanvas.cpp in Sources */,
-				9C5F43CA1E7CB0F0008682BC /* cgCanvas.cpp in Sources */,
-				9C5F43CB1E7CB0F0008682BC /* midtermMain.cpp in Sources */,
+				9CF005F21E806C110089B3CA /* main.cpp in Sources */,
 				9C5F438C1E7C5034008682BC /* clipper.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

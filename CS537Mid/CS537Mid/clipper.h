@@ -54,6 +54,17 @@ public:
                     float outx[], float outy[],
 		    float llx, float lly, float urx, float ury);
 
+    struct Vertices {
+        float x;
+        float y;
+    };
+    
+    struct Boundary {
+        float llx;
+        float lly;
+        float urx;
+        float ury;
+    };
 };
 
 #endif

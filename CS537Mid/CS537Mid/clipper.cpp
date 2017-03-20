@@ -22,19 +22,9 @@ clipper::clipper ()
 {
 }
 
-struct Vertices {
-    float x;
-    float y;
-};
 
-struct Boundary {
-    float llx;
-    float lly;
-    float urx;
-    float ury;
-};
 
-bool inside(Vertices vertices, Boundary boundary) {
+bool inside(clipper::Vertices vertices, clipper::Boundary boundary) {
     if (boundary.lly == boundary.ury) {
         //horizontal
         if (boundary.llx<boundary.urx) {
@@ -55,13 +45,13 @@ bool inside(Vertices vertices, Boundary boundary) {
     return false;
 }
 
-void output(Vertices point,int &length,Vertices vector[]) {
+void output(clipper::Vertices point,int &length,clipper::Vertices vector[]) {
     vector[length].x = point.x;
     vector[length].y = point.y;
     length++;
 }
 
-void intersect(Vertices spoint,Vertices epoint,Boundary boundary,Vertices &newpoint) {
+void intersect(clipper::Vertices spoint,clipper::Vertices epoint,clipper::Boundary boundary,clipper::Vertices &newpoint) {
     if (boundary.llx == boundary.urx) {
         newpoint.x = boundary.llx;
         newpoint.y = spoint.y +(boundary.llx - spoint.x) * (epoint.y - spoint.y) / (epoint.x - spoint.x);
@@ -72,16 +62,16 @@ void intersect(Vertices spoint,Vertices epoint,Boundary boundary,Vertices &newpo
     }
 }
 
-void SHPC(Vertices inVertices[],Vertices outVertices[],int inLength,int &outLength, Boundary clipboundary) {
+void SHPC(clipper::Vertices inVertices[],clipper::Vertices outVertices[],int inLength,int &outLength, clipper::Boundary clipboundary) {
     
     outLength = 0;
     
-    Vertices p = inVertices[inLength - 1 ];
+    clipper::Vertices p = inVertices[inLength - 1 ];
     
     
-    Vertices i = p;
+    clipper::Vertices i = p;
     for (int j=0; j<inLength; j++) {
-        Vertices v = inVertices[j];
+        clipper::Vertices v = inVertices[j];
         if( inside( v, clipboundary ) ) {       // Cases 1 & 4
             if ( inside( p, clipboundary )) {   // Case 1
                 output( v ,outLength,outVertices);
