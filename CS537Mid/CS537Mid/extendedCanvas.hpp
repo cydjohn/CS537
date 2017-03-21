@@ -16,7 +16,11 @@
 
 #include "simpleCanvas.h"
 
+#include "cmatrix"
+
 using namespace std;
+
+//typedef techsoft::matrix<float> Matrix;
 
 class extendedCanvas : public simpleCanvas {
 private:
@@ -24,15 +28,26 @@ private:
     // SFML polygons
     ///
     vector<sf::ConvexShape> polys;
+    
+
+
 public:
 
     extendedCanvas(int w, int h);
     
-    void draw (sf::RenderWindow &R);
+    void drawPoly(const float x1[], const float y1[], int n);
     
-    void printLoop (int n, const float x[], const float y[] );
+    void initTransform();
     
-    void printPoly (int n, const float x[], const float y[] );
+    void translation(float x, float y);
+    
+    void rotation(float degrees);
+    
+    void scaling(float x, float y);
+    
+    void setClipWindow(float bottom, float top, float left, float right);
+    
+    void setViewport(int x, int y, int width, int height);
 
 };
 

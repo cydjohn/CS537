@@ -80,7 +80,7 @@ void extendedCanvas::printPoly (int n, const float x[], const float y[] )
 void extendedCanvas::draw (sf::RenderWindow &R)
 {
     // draw as usual
-    simpleCanvas::draw (R);
+    simpleCanvas::draw(R);
 
     // draw your polys
     vector<sf::ConvexShape>::iterator it;

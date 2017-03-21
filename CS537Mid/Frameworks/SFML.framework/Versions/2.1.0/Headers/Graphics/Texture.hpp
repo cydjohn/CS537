@@ -478,7 +478,7 @@ private :
     /// accordingly.
     /// The returned size is greater than or equal to the original size.
     ///
-    /// \param Size size to convert
+    /// \param size size to convert
     ///
     /// \return Valid nearest size (greater than or equal to specified size)
     ///
