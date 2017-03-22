@@ -20,7 +20,6 @@
 
 using namespace std;
 
-//typedef techsoft::matrix<float> Matrix;
 
 class extendedCanvas : public simpleCanvas {
 private:
@@ -30,6 +29,8 @@ private:
     vector<sf::ConvexShape> polys;
     
     void rasterization(int n,float outx[], float outy[]);
+    
+    void clip(int in, float inx[], float iny[],float outx[], float outy[],sf::ConvexShape newPoly);
 
 public:
 
@@ -47,7 +48,9 @@ public:
     
     void shearing(float a);
     
-    void setClipWindow(float bottom, float top, float left, float right);
+    void setClipWindow(float lly, float ury, float llx, float urx);
+    
+     void setViewport(int x, int y, int width, int height);
 };
 
 #endif /* extendedCanvas_hpp */

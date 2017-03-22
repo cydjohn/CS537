@@ -23,19 +23,26 @@ extendedCanvas::extendedCanvas(int w, int h) : simpleCanvas(w,h)
 
 typedef techsoft::matrix<float> Matrix;
 
+
+// tempMatix is for doing the polygon change
+// use polygon matrix times this matrix
 Matrix tempMatrix;
 
-clipper::Boundary clipWindow;
+clipper::Boundary clipWindow,viewWindow;
 
+
+// do the clip
+// change the x,y in polygon before doing the clip
 void clip(int in, float inx[], float iny[],
           float outx[], float outy[],sf::ConvexShape newPoly){
     Matrix m;
     sf::Vector2<float> coord;
     
+    
+    // change the x,y in polygon before doing the clip
     for (int i = 0; i < in; i++)
     {
         coord = newPoly.getPoint(i);
-        // compute the coordinates of the point after the transformation
         m = Matrix(3, 1, {coord.x, coord.y, 1});
         m = tempMatrix * m;
         inx[i] = m[0][0];
@@ -47,9 +54,11 @@ void clip(int in, float inx[], float iny[],
     in = clip.clipPolygon(in, inx, iny, outx, outy, clipWindow.llx, clipWindow.lly, clipWindow.urx, clipWindow.ury);
 }
 
+
+// Rasterization
 void extendedCanvas::rasterization(int n,float outx[], float outy[]){
     Matrix m;
-    // object that contain the drawPolygon
+
     Rasterizer rasterizer = Rasterizer(n);
     
     int *x = new int[n];
@@ -60,12 +69,12 @@ void extendedCanvas::rasterization(int n,float outx[], float outy[]){
         m = Matrix(3, 1, {outx[i], outy[i], 1});
         // normalize !
         
-        //500 is the view's x size
-        float newX = 500 * ((m[0][0] - clipWindow.llx) / (clipWindow.urx - clipWindow.llx)) ;
+        // change x in polygon base on viewWindow and  clipWindow
+        float newX = viewWindow.lly + viewWindow.llx * ((m[0][0] - clipWindow.llx) / (clipWindow.urx - clipWindow.llx)) ;
         
         
-        //500 is the view'y y size
-        float newY = 500 * ((m[1][0] - clipWindow.lly) / (clipWindow.ury - clipWindow.lly));
+        // change y in polygon base on viewWindow and  clipWindow
+        float newY = viewWindow.lly + viewWindow.llx * ((m[1][0] - clipWindow.lly) / (clipWindow.ury - clipWindow.lly));
         x[i] = int(newX + 0.5);
         y[i] = int(newY + 0.5);
     }
@@ -76,7 +85,7 @@ void extendedCanvas::rasterization(int n,float outx[], float outy[]){
     free(y);
 }
 
-
+// 2D pipline
 void extendedCanvas::drawPoly(int n,const float x[], const float y[])
 {
     
@@ -92,9 +101,10 @@ void extendedCanvas::drawPoly(int n,const float x[], const float y[])
     float *outx = new float[n];
     float *outy = new float[n];
 
-    
+    //clip
     clip(n, inx, iny, outx, outy, newPoly);
 
+    //rasterization
     rasterization(n, outx, outy);
     
     free(outx);
@@ -103,6 +113,8 @@ void extendedCanvas::drawPoly(int n,const float x[], const float y[])
     free(iny);
 }
 
+
+// initialize the tempMatix
 void extendedCanvas::initTransform()
 {
     const float initMatrix[] = {1, 0, 0,
@@ -156,15 +168,22 @@ void extendedCanvas::shearing(float a) {
     tempMatrix = shearingTransform * tempMatrix;
 }
 
-void extendedCanvas::setClipWindow(float bottom, float top, float left, float right)
+void extendedCanvas::setClipWindow(float lly, float llx, float ury, float urx)
 {
-    clipWindow.lly = bottom;
-    clipWindow.ury = top;
-    clipWindow.llx = left;
-    clipWindow.urx = right;
+    clipWindow.lly = lly;
+    clipWindow.ury = ury;
+    clipWindow.llx = llx;
+    clipWindow.urx = urx;
 }
 
 
+void extendedCanvas::setViewport(int x, int y, int width, int height)
+{
+    viewWindow.lly = x;
+    viewWindow.ury = y;
+    viewWindow.llx = width;
+    viewWindow.urx = height;
+}
 
 
 

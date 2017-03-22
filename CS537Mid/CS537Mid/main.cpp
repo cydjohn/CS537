@@ -43,6 +43,9 @@ bool keyTyped(enum sf::Keyboard::Key key)
 //            shearing
         case sf::Keyboard::H: controlNumber = 5; break;
             
+//            viewport
+        case sf::Keyboard::V: controlNumber = 6; break;
+            
 //        initial state
         case sf::Keyboard::I: controlNumber = 0; break;
     }
@@ -57,7 +60,8 @@ void drawOnCanvas(extendedCanvas &C) {
     
     C.initTransform();
     
-    C.setClipWindow( 0, 500,0, 500 );
+    C.setClipWindow( 0, 0,500, 500 );
+    C.setViewport(0, 0, 500, 500);
     
     if (controlNumber == 1) {
         C.rotation( -20 );
@@ -83,7 +87,8 @@ void drawOnCanvas(extendedCanvas &C) {
         drawTriangle(C);
     }
     else if (controlNumber == 4) {
-        C.setClipWindow( 25, 200, 25, 200 );
+        C.setClipWindow( 25,25,200, 200 );
+        
         drawTriangle(C);
         drawSquare(C);
         drawStar(C);
@@ -91,6 +96,13 @@ void drawOnCanvas(extendedCanvas &C) {
     }
     else if (controlNumber == 5) {
         C.shearing(0.75);
+        drawSquare(C);
+        drawStar(C);
+        drawTriangle(C);
+    }
+    else if (controlNumber == 6) {
+        C.setViewport(50, 50, 300, 300);
+        C.shearing(1);
         drawSquare(C);
         drawStar(C);
         drawTriangle(C);
@@ -142,6 +154,8 @@ int main( int argc, char *argv[] )
 
 }
 
+
+// draw a star
 void drawStar(extendedCanvas &C) {
     C.setColor(1, 1, 0);
     float x[10];
@@ -159,6 +173,7 @@ void drawStar(extendedCanvas &C) {
     C.drawPoly(10, x, y );
 }
 
+//draw a square
 void drawSquare(extendedCanvas &C) {
     C.setColor(1, 0, 0);
     float x[3];
@@ -166,11 +181,11 @@ void drawSquare(extendedCanvas &C) {
     x[0] = 5; y[0] = 80;
     x[1] = 85; y[1] = 80;
     x[2] = 45; y[2] = 149;
-    
-
     C.drawPoly(3, x, y);
 }
 
+
+// draw a triangle
 void drawTriangle(extendedCanvas &C) {
     C.setColor(0, 0, 1);
     float x[4];
