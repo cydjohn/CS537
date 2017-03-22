@@ -29,13 +29,13 @@ private:
     ///
     vector<sf::ConvexShape> polys;
     
-
+    void rasterization(int n,float outx[], float outy[]);
 
 public:
 
     extendedCanvas(int w, int h);
     
-    void drawPoly(const float x1[], const float y1[], int n);
+    void drawPoly(int n,const float x[], const float y[]);
     
     void initTransform();
     
@@ -45,9 +45,10 @@ public:
     
     void scaling(float x, float y);
     
+    void shearing(float a);
+    
     void setClipWindow(float bottom, float top, float left, float right);
     
-    void setViewport(int x, int y, int width, int height);
 
 };
 

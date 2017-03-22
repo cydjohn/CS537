@@ -27,25 +27,12 @@ Matrix currentTransform;
 
 clipper::Boundary clipWindow,viewWindow;
 
-
-
-
-void extendedCanvas::drawPoly(const float x1[], const float y1[], int n)
-{
-    
-    sf::ConvexShape newPoly = sf::ConvexShape(n); // Create a Polygon
-    for (int i = 0; i < n; i++)
-    {
-        newPoly.setPoint(i, sf::Vector2<float>(x1[i], y1[i])); // Set the vertices, vertex by vertex
-    }
-
-    float *inx = new float[n],
-    *iny = new float[n];
-    
+void clip(int in, float inx[], float iny[],
+          float outx[], float outy[],sf::ConvexShape newPoly){
     Matrix m;
     sf::Vector2<float> coord;
     
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < in; i++)
     {
         coord = newPoly.getPoint(i);
         // compute the coordinates of the point after the transformation
@@ -55,46 +42,60 @@ void extendedCanvas::drawPoly(const float x1[], const float y1[], int n)
         iny[i] = m[1][0];
     }
     
-    // set in
-//    int in = polys.at(polyID).getPointCount();
-    int in = n;
-    
-    // set outx[] and outy[]
-    float *outx = new float[in],
-    *outy = new float[in];
-    
     clipper clip;
     // clip
-    n = clip.clipPolygon(in, inx, iny, outx, outy, clipWindow.llx, clipWindow.lly, clipWindow.urx, clipWindow.ury);
-    
-     delete[] inx, iny; // dynamic allocation
-    
+    in = clip.clipPolygon(in, inx, iny, outx, outy, clipWindow.llx, clipWindow.lly, clipWindow.urx, clipWindow.ury);
+}
+
+void extendedCanvas::rasterization(int n,float outx[], float outy[]){
+    Matrix m;
     // object that contain the drawPolygon
-    Rasterizer rast = Rasterizer(n);
+    Rasterizer rasterizer = Rasterizer(n);
     
     int *x = new int[n],
     *y = new int[n];
     
-    /*
-     VXmin = x;
-     VXmax = width;
-     VYmin = y;
-     VYmax = height;*/
     for (int i = 0; i < n; i++)
     {
         m = Matrix(3, 1, {outx[i], outy[i], 1});
-        // let's normalize !
-        float x_normalized = viewWindow.lly + viewWindow.llx * ((m[0][0] - clipWindow.llx) / (clipWindow.urx - clipWindow.llx)) ;
-        float y_normalized = viewWindow.lly + viewWindow.llx * ((m[1][0] - clipWindow.lly) / (clipWindow.ury - clipWindow.lly));
-        x[i] = round(x_normalized);
-        y[i] = round(y_normalized);
+        // normalize !
+        
+//        spoint.x +(boundary.lly - spoint.y) * (epoint.x - spoint.x) / (epoint.y - spoint.y);
+        float x_normalized = 500 * ((m[0][0] - clipWindow.llx) / (clipWindow.urx - clipWindow.llx)) ;
+        
+        
+//        spoint.y +(boundary.llx - spoint.x) * (epoint.y - spoint.y) / (epoint.x - spoint.x);
+        float y_normalized = 500 * ((m[1][0] - clipWindow.lly) / (clipWindow.ury - clipWindow.lly));
+        x[i] = int(x_normalized + 0.5);
+        y[i] = int(y_normalized + 0.5);
     }
     
     // draw
-    rast.drawPolygon(n, x, y, *this);
+    rasterizer.drawPolygon(n, x, y, *this);
+}
+
+
+void extendedCanvas::drawPoly(int n,const float x[], const float y[])
+{
+    
+    sf::ConvexShape newPoly = sf::ConvexShape(n); // Create a Polygon
+    for (int i = 0; i < n; i++)
+    {
+        newPoly.setPoint(i, sf::Vector2<float>(x[i], y[i])); // Set the vertices, vertex by vertex
+    }
+
+    float *inx = new float[n];
+    float *iny = new float[n];
+
+    float *outx = new float[n];
+    float *outy = new float[n];
 
     
-     delete[] x, y, outx, outy;
+    clip(n, inx, iny, outx, outy, newPoly);
+
+    rasterization(n, outx, outy);
+    
+     delete[] outx, outy,inx, iny;;
 }
 
 void extendedCanvas::initTransform()
@@ -103,21 +104,17 @@ void extendedCanvas::initTransform()
                         0, 1, 0,
                         0, 0, 1};
     
-
-    
     currentTransform = Matrix(3, 3, ID);
 }
 
 void extendedCanvas::translation(float x, float y)
 {
-
     const float TR[] = {1, 0, x,
                         0, 1, y,
                         0, 0, 1};
     
     Matrix translateTransform = Matrix(3, 3, TR);
     
-    // CM = T(x, y) * CM
     currentTransform = translateTransform * currentTransform;
 }
 
@@ -130,7 +127,7 @@ void extendedCanvas::rotation(float degrees)
     
     Matrix rotateTransform = Matrix(3, 3, RO);
     
-    // CM = R(theta) * CM
+
     currentTransform = rotateTransform * currentTransform;
 }
 
@@ -143,10 +140,16 @@ void extendedCanvas::scaling(float x, float y)
     
     Matrix scaleTransform = Matrix(3, 3, SC);
     
-    // CM = S(x, y) * CM
     currentTransform = scaleTransform * currentTransform;
 }
 
+void extendedCanvas::shearing(float a) {
+    const float SH[] = {1, a, 0,
+                        0,1,0,
+        0,0,1};
+    Matrix shearingTransform = Matrix(3,3,SH);
+    currentTransform = shearingTransform * currentTransform;
+}
 
 void extendedCanvas::setClipWindow(float bottom, float top, float left, float right)
 {
@@ -156,13 +159,7 @@ void extendedCanvas::setClipWindow(float bottom, float top, float left, float ri
     clipWindow.urx = right;
 }
 
-void extendedCanvas::setViewport(int x, int y, int width, int height)
-{
-    viewWindow.lly = x;
-    viewWindow.ury = y;
-    viewWindow.llx = width;
-    viewWindow.urx = height;
-}
+
 
 
 

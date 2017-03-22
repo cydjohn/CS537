@@ -40,6 +40,9 @@ bool keyTyped(enum sf::Keyboard::Key key)
 //            clip
         case sf::Keyboard::C: controlNumber = 4; break;
             
+//            shearing
+        case sf::Keyboard::H: controlNumber = 5; break;
+            
 //        initial state
         case sf::Keyboard::I: controlNumber = 0; break;
     }
@@ -55,7 +58,6 @@ void drawOnCanvas(extendedCanvas &C) {
     C.initTransform();
     
     C.setClipWindow( 0, 500,0, 500 );
-    C.setViewport( 0,0, 500, 500 );
     
     if (controlNumber == 1) {
         C.rotation( -20 );
@@ -81,7 +83,14 @@ void drawOnCanvas(extendedCanvas &C) {
         drawTriangle(C);
     }
     else if (controlNumber == 4) {
-        C.setClipWindow( 30, 200,30, 200 );
+        C.setClipWindow( 25, 200, 25, 200 );
+        drawTriangle(C);
+        drawSquare(C);
+        drawStar(C);
+        
+    }
+    else if (controlNumber == 5) {
+        C.shearing(0.75);
         drawSquare(C);
         drawStar(C);
         drawTriangle(C);
@@ -100,7 +109,7 @@ int main( int argc, char *argv[] )
     extendedCanvas C(500, 500);
 
     // create and run the app
-    sf::RenderWindow App(sf::VideoMode(500, 500), "CG Midterm");
+    sf::RenderWindow App(sf::VideoMode(500, 500), "Midterm");
     while( App.isOpen() )
     {
         // Process events
@@ -147,7 +156,7 @@ void drawStar(extendedCanvas &C) {
     x[7] = 107; y[7] = 102;
     x[8] = 83; y[8] = 125;
     x[9] = 116; y[9] = 130;
-    C.drawPoly( x, y, 10 );
+    C.drawPoly(10, x, y );
 }
 
 void drawSquare(extendedCanvas &C) {
@@ -158,7 +167,7 @@ void drawSquare(extendedCanvas &C) {
     x[1] = 55; y[1] = 75;
     x[2] = 55; y[2] = 125;
     x[3] = 5; y[3] = 125;
-    C.drawPoly(x, y, 4);
+    C.drawPoly(4, x, y);
 }
 
 void drawTriangle(extendedCanvas &C) {
@@ -168,5 +177,5 @@ void drawTriangle(extendedCanvas &C) {
     x[0] = 10; y[0] = 180;
     x[1] = 150; y[1] = 180;
     x[2] = 80; y[2] = 301;
-    C.drawPoly(x, y, 3);
+    C.drawPoly(3, x, y);
 }
