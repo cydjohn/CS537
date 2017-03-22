@@ -18,14 +18,14 @@
 
 extendedCanvas::extendedCanvas(int w, int h) : simpleCanvas(w,h)
 {
-    initTransform(); // by default we set the transformation matrix to ID
+    initTransform();
 }
 
 typedef techsoft::matrix<float> Matrix;
 
-Matrix currentTransform;
+Matrix tempMatrix;
 
-clipper::Boundary clipWindow,viewWindow;
+clipper::Boundary clipWindow;
 
 void clip(int in, float inx[], float iny[],
           float outx[], float outy[],sf::ConvexShape newPoly){
@@ -37,7 +37,7 @@ void clip(int in, float inx[], float iny[],
         coord = newPoly.getPoint(i);
         // compute the coordinates of the point after the transformation
         m = Matrix(3, 1, {coord.x, coord.y, 1});
-        m = currentTransform * m;
+        m = tempMatrix * m;
         inx[i] = m[0][0];
         iny[i] = m[1][0];
     }
@@ -52,26 +52,28 @@ void extendedCanvas::rasterization(int n,float outx[], float outy[]){
     // object that contain the drawPolygon
     Rasterizer rasterizer = Rasterizer(n);
     
-    int *x = new int[n],
-    *y = new int[n];
+    int *x = new int[n];
+    int *y = new int[n];
     
     for (int i = 0; i < n; i++)
     {
         m = Matrix(3, 1, {outx[i], outy[i], 1});
         // normalize !
         
-//        spoint.x +(boundary.lly - spoint.y) * (epoint.x - spoint.x) / (epoint.y - spoint.y);
-        float x_normalized = 500 * ((m[0][0] - clipWindow.llx) / (clipWindow.urx - clipWindow.llx)) ;
+        //500 is the view's x size
+        float newX = 500 * ((m[0][0] - clipWindow.llx) / (clipWindow.urx - clipWindow.llx)) ;
         
         
-//        spoint.y +(boundary.llx - spoint.x) * (epoint.y - spoint.y) / (epoint.x - spoint.x);
-        float y_normalized = 500 * ((m[1][0] - clipWindow.lly) / (clipWindow.ury - clipWindow.lly));
-        x[i] = int(x_normalized + 0.5);
-        y[i] = int(y_normalized + 0.5);
+        //500 is the view'y y size
+        float newY = 500 * ((m[1][0] - clipWindow.lly) / (clipWindow.ury - clipWindow.lly));
+        x[i] = int(newX + 0.5);
+        y[i] = int(newY + 0.5);
     }
     
     // draw
     rasterizer.drawPolygon(n, x, y, *this);
+    free(x);
+    free(y);
 }
 
 
@@ -95,60 +97,63 @@ void extendedCanvas::drawPoly(int n,const float x[], const float y[])
 
     rasterization(n, outx, outy);
     
-     delete[] outx, outy,inx, iny;;
+    free(outx);
+    free(outy);
+    free(inx);
+    free(iny);
 }
 
 void extendedCanvas::initTransform()
 {
-    const float ID[] = {1, 0, 0,
+    const float initMatrix[] = {1, 0, 0,
                         0, 1, 0,
                         0, 0, 1};
     
-    currentTransform = Matrix(3, 3, ID);
+    tempMatrix = Matrix(3, 3, initMatrix);
 }
 
 void extendedCanvas::translation(float x, float y)
 {
-    const float TR[] = {1, 0, x,
+    const float translateTransformMatrix[] = {1, 0, x,
                         0, 1, y,
                         0, 0, 1};
     
-    Matrix translateTransform = Matrix(3, 3, TR);
+    Matrix translateTransform = Matrix(3, 3, translateTransformMatrix);
     
-    currentTransform = translateTransform * currentTransform;
+    tempMatrix = translateTransform * tempMatrix;
 }
 
 void extendedCanvas::rotation(float degrees)
 {
     float theta = degrees * M_PI / 180;
-    const float RO[] = {cos(theta), -sin(theta), 0,
+    const float rotateTransformMatrix[] = {cos(theta), -sin(theta), 0,
                         sin(theta), cos(theta),  0,
                         0,         0,            1};
     
-    Matrix rotateTransform = Matrix(3, 3, RO);
+    Matrix rotateTransform = Matrix(3, 3, rotateTransformMatrix);
     
 
-    currentTransform = rotateTransform * currentTransform;
+    tempMatrix = rotateTransform * tempMatrix;
 }
 
 
 void extendedCanvas::scaling(float x, float y)
 {
-    const float SC[] = {x, 0, 0,
+    const float scaleTransformMatrix[] = {x, 0, 0,
                         0, y, 0,
                         0, 0, 1};
     
-    Matrix scaleTransform = Matrix(3, 3, SC);
+    Matrix scaleTransform = Matrix(3, 3, scaleTransformMatrix);
     
-    currentTransform = scaleTransform * currentTransform;
+    tempMatrix = scaleTransform * tempMatrix;
 }
 
 void extendedCanvas::shearing(float a) {
-    const float SH[] = {1, a, 0,
+    const float shearingTransformMatrix[] = {1, a, 0,
                         0,1,0,
         0,0,1};
-    Matrix shearingTransform = Matrix(3,3,SH);
-    currentTransform = shearingTransform * currentTransform;
+    Matrix shearingTransform = Matrix(3,3,shearingTransformMatrix);
+    tempMatrix = shearingTransform * tempMatrix;
 }
 
 void extendedCanvas::setClipWindow(float bottom, float top, float left, float right)

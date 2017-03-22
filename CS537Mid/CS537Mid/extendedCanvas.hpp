@@ -48,8 +48,6 @@ public:
     void shearing(float a);
     
     void setClipWindow(float bottom, float top, float left, float right);
-    
-
 };
 
 #endif /* extendedCanvas_hpp */

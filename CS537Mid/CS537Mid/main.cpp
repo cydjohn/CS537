@@ -109,7 +109,7 @@ int main( int argc, char *argv[] )
     extendedCanvas C(500, 500);
 
     // create and run the app
-    sf::RenderWindow App(sf::VideoMode(500, 500), "Midterm");
+    sf::RenderWindow App(sf::VideoMode(400, 500), "Midterm");
     while( App.isOpen() )
     {
         // Process events
@@ -161,21 +161,23 @@ void drawStar(extendedCanvas &C) {
 
 void drawSquare(extendedCanvas &C) {
     C.setColor(1, 0, 0);
-    float x[4];
-    float y[4];
-    x[0] = 5; y[0] = 75;
-    x[1] = 55; y[1] = 75;
-    x[2] = 55; y[2] = 125;
-    x[3] = 5; y[3] = 125;
-    C.drawPoly(4, x, y);
+    float x[3];
+    float y[3];
+    x[0] = 5; y[0] = 80;
+    x[1] = 85; y[1] = 80;
+    x[2] = 45; y[2] = 149;
+    
+
+    C.drawPoly(3, x, y);
 }
 
 void drawTriangle(extendedCanvas &C) {
     C.setColor(0, 0, 1);
-    float x[3];
-    float y[3];
-    x[0] = 10; y[0] = 180;
-    x[1] = 150; y[1] = 180;
-    x[2] = 80; y[2] = 301;
-    C.drawPoly(3, x, y);
+    float x[4];
+    float y[4];
+    x[0] = 105; y[0] = 175;
+    x[1] = 155; y[1] = 175;
+    x[2] = 155; y[2] = 225;
+    x[3] = 105; y[3] = 225;
+    C.drawPoly(4, x, y);
 }
