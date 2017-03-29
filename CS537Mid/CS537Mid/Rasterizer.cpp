@@ -223,4 +223,5 @@ void Rasterizer::drawPolygon(int n, int x[], int y[], simpleCanvas &C)
     quickSortET(ET, 0, int(ET.size()-1));
     
     processEdgeTable(ET, C);
+
 }

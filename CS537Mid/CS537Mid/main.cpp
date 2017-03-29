@@ -9,7 +9,7 @@
 #include <SFML/Graphics.hpp>
 #include "extendedCanvas.hpp"
 
-float controlNumber = 0;
+float controlNumber = 6;
 
 void drawStar(extendedCanvas &C);
 void drawSquare(extendedCanvas &C);
@@ -87,7 +87,7 @@ void drawOnCanvas(extendedCanvas &C) {
         drawTriangle(C);
     }
     else if (controlNumber == 4) {
-        C.setClipWindow( 25,25,200, 200 );
+        C.setClipWindow( 0,0,300, 300 );
         
         drawTriangle(C);
         drawSquare(C);
@@ -101,8 +101,8 @@ void drawOnCanvas(extendedCanvas &C) {
         drawTriangle(C);
     }
     else if (controlNumber == 6) {
-        C.setViewport(50, 50, 300, 300);
-        C.shearing(1);
+        C.setClipWindow( 100,100,300, 300 );
+        C.setViewport(100, 100, 400, 400);
         drawSquare(C);
         drawStar(C);
         drawTriangle(C);
@@ -121,7 +121,7 @@ int main( int argc, char *argv[] )
     extendedCanvas C(500, 500);
 
     // create and run the app
-    sf::RenderWindow App(sf::VideoMode(400, 500), "Midterm");
+    sf::RenderWindow App(sf::VideoMode(500, 500), "Midterm Project");
     while( App.isOpen() )
     {
         // Process events
@@ -173,8 +173,8 @@ void drawStar(extendedCanvas &C) {
     C.drawPoly(10, x, y );
 }
 
-//draw a square
-void drawSquare(extendedCanvas &C) {
+//draw a triangle
+void drawTriangle(extendedCanvas &C) {
     C.setColor(1, 0, 0);
     float x[3];
     float y[3];
@@ -185,8 +185,8 @@ void drawSquare(extendedCanvas &C) {
 }
 
 
-// draw a triangle
-void drawTriangle(extendedCanvas &C) {
+// draw a square
+void drawSquare(extendedCanvas &C) {
     C.setColor(0, 0, 1);
     float x[4];
     float y[4];
