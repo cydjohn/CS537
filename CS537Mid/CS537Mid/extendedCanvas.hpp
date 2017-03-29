@@ -30,8 +30,7 @@ private:
     
     void rasterization(int n,float outx[], float outy[]);
     
-    void clip(int in, float inx[], float iny[],
-              float outx[], float outy[],sf::ConvexShape newPoly);
+    void tdPipeline(int in,sf::ConvexShape newPoly);
     
 
 public:
@@ -50,7 +49,7 @@ public:
     
     void shearing(float a);
     
-    void setClipWindow(float lly, float llx, float ury, float urx);
+    void setClipWindow(float llx, float lly, float ury, float urx);
     
      void setViewport(int x, int y, int width, int height);
 };

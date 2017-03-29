@@ -156,6 +156,10 @@ int clipper::clipPolygon(int in, const float inx[], const float iny[],
     
     outLength1 = outLength4;
     
+//    free(out2);
+//    free(out3);
+//    free(out4);
+    
     return outLength1;  // should return number of vertices in clipped poly.
     
 }

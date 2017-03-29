@@ -9,11 +9,12 @@
 #include <SFML/Graphics.hpp>
 #include "extendedCanvas.hpp"
 
-float controlNumber = 6;
+float controlNumber = 0;
 
 void drawStar(extendedCanvas &C);
 void drawSquare(extendedCanvas &C);
 void drawTriangle(extendedCanvas &C);
+
 
 ///
 // Callback for key presses.  Returns a flag indicating if the app should
@@ -37,20 +38,32 @@ bool keyTyped(enum sf::Keyboard::Key key)
 //            scale
         case sf::Keyboard::S: controlNumber = 3; break;
             
-//            clip
-        case sf::Keyboard::C: controlNumber = 4; break;
-            
-//            shearing
-        case sf::Keyboard::H: controlNumber = 5; break;
-            
 //            viewport
-        case sf::Keyboard::V: controlNumber = 6; break;
+        case sf::Keyboard::V: controlNumber = 4; break;
+            
+//            clip
+        case sf::Keyboard::C: controlNumber = 5; break;
             
 //        initial state
         case sf::Keyboard::I: controlNumber = 0; break;
+            
+        case sf::Keyboard::Right:
+
+            if (++controlNumber==6) {
+                controlNumber = 0;
+            }
+            break;
+        case sf::Keyboard::Left:
+            
+            if (--controlNumber==-1) {
+                controlNumber = 5;
+            }
+            break;
     }
     return false;
 }
+
+float degree = 0;
 
 void drawOnCanvas(extendedCanvas &C) {
     
@@ -64,45 +77,45 @@ void drawOnCanvas(extendedCanvas &C) {
     C.setViewport(0, 0, 500, 500);
     
     if (controlNumber == 1) {
-        C.rotation( -20 );
+        C.rotation( degree );
+        
+        
+        degree += 0.5;
+
+        C.translation(20, 50);
         drawSquare(C);
-        drawStar(C);
-        drawTriangle(C);
+        
+        
     }
     else if (controlNumber == 2) {
         
         C.translation(280, 170);
         drawSquare(C);
         
-        C.translation(-200, 30);
+        C.initTransform();
+        C.translation(20, 30);
         drawStar(C);
         
-        C.translation(100, -300);
+        C.initTransform();
+        C.translation(150, 180);
         drawTriangle(C);
     }
     else if (controlNumber == 3) {
-        C.scaling(0.5, 1);
+        C.scaling(2.5, 1);
         drawSquare(C);
         drawStar(C);
         drawTriangle(C);
     }
     else if (controlNumber == 4) {
-        C.setClipWindow( 0,0,300, 300 );
-        
-        drawTriangle(C);
+        C.setClipWindow( 20, 70, 300, 300 );
+        C.setViewport(0, 0, 600, 600);
         drawSquare(C);
         drawStar(C);
-        
+        drawTriangle(C);
     }
     else if (controlNumber == 5) {
-        C.shearing(0.75);
-        drawSquare(C);
-        drawStar(C);
-        drawTriangle(C);
-    }
-    else if (controlNumber == 6) {
-        C.setClipWindow( 100,100,300, 300 );
-        C.setViewport(100, 100, 400, 400);
+//        C.setClipWindow( 20, 70, 300, 300 );
+        C.setViewport(200, 200, 500, 500);
         drawSquare(C);
         drawStar(C);
         drawTriangle(C);

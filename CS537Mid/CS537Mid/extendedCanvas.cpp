@@ -35,22 +35,30 @@ clipper::Boundary clipWindow,viewWindow;
 
 // do the clip
 // change the x,y in polygon before doing the clip
-void extendedCanvas::clip(int in, float inx[], float iny[],
-          float outx[], float outy[],sf::ConvexShape newPoly){
+void extendedCanvas::tdPipeline(int in,sf::ConvexShape newPoly){
+    float *inx = new float[14];
+    float *iny = new float[14];
+    
+    float *outx = new float[14];
+    float *outy = new float[14];
     Matrix m;
     sf::Vector2<float> coord;
-    // change the x,y in polygon before doing the clip
+    
+    
+    
+    
+    // Normalization
     for (int i = 0; i < in; i++)
     {
         coord = newPoly.getPoint(i);
         m = Matrix(3, 1, {coord.x, coord.y, 1});
 //        m = tempMatrix * m;
         
-        float xV = (viewWindow.urx - viewWindow.llx)/(clipWindow.urx-clipWindow.llx) * m[0][0] + (clipWindow.urx*viewWindow.llx - clipWindow.llx*clipWindow.urx)/(clipWindow.urx - clipWindow.llx);
+        float xV = (viewWindow.urx - viewWindow.llx)/(clipWindow.urx-clipWindow.llx) * m[0][0] + (clipWindow.urx*viewWindow.llx - clipWindow.llx*viewWindow.urx)/(clipWindow.urx - clipWindow.llx);
         
 //        std::cout<<(clipWindow.urx*viewWindow.llx - clipWindow.llx*clipWindow.urx)/(clipWindow.urx - clipWindow.llx)<<endl;
         
-        float yV = (viewWindow.ury - viewWindow.lly)/(clipWindow.ury-clipWindow.lly) * m[1][0] + (clipWindow.ury*viewWindow.lly - clipWindow.lly*clipWindow.ury)/(clipWindow.ury - clipWindow.lly);
+        float yV = (viewWindow.ury - viewWindow.lly)/(clipWindow.ury-clipWindow.lly) * m[1][0] + (clipWindow.ury*viewWindow.lly - clipWindow.lly*viewWindow.ury)/(clipWindow.ury - clipWindow.lly);
         
         
         //        std::cout<<(clipWindow.ury*viewWindow.lly - clipWindow.lly*clipWindow.ury)/(clipWindow.ury - clipWindow.lly)<<std::endl;
@@ -58,8 +66,6 @@ void extendedCanvas::clip(int in, float inx[], float iny[],
         inx[i] = xV;
         iny[i] = yV;
         
-//        inx[i] = m[0][0];
-//        iny[i] = m[1][0];
     }
     
     
@@ -70,6 +76,10 @@ void extendedCanvas::clip(int in, float inx[], float iny[],
     in = clip.clipPolygon(in, inx, iny, outx, outy, clipWindow.llx, clipWindow.lly, clipWindow.urx, clipWindow.ury);
     int *x = new int[in];
     int *y = new int[in];
+    
+    
+    
+//    Viewing Transform
     for (int i = 0; i < in; i++)
     {
         m = Matrix(3, 1, {outx[i], outy[i], 1});
@@ -77,10 +87,21 @@ void extendedCanvas::clip(int in, float inx[], float iny[],
         x[i] = m[0][0];
         y[i] = m[1][0];
     }
+    
+    
+//    Rasterization
     if (in > 0) {
         Rasterizer rasterizer = Rasterizer(in);
         rasterizer.drawPolygon(in, x,y, *this);
     }
+    
+    free(x);
+    free(y);
+    
+    free(outx);
+    free(outy);
+    free(inx);
+    free(iny);
     
 }
 
@@ -97,26 +118,12 @@ void extendedCanvas::drawPoly(int n,const float x[], const float y[])
         newPoly.setPoint(i, sf::Vector2<float>(x[i], y[i])); // Set the vertices, vertex by vertex
     }
 
-    float *inx = new float[n];
-    float *iny = new float[n];
-
-    float *outx = new float[n];
-    float *outy = new float[n];
     
     
-
-    //clip
-    clip(n, inx, iny, outx, outy, newPoly);
+    //2D pipeline
+    tdPipeline(n, newPoly);
     
 
-
-    //rasterization
-//    rasterization(n, outx, outy);
-    
-    free(outx);
-    free(outy);
-    free(inx);
-    free(iny);
 }
 
 
@@ -147,9 +154,13 @@ void extendedCanvas::translation(float x, float y)
 void extendedCanvas::rotation(float degrees)
 {
     float theta = degrees * M_PI / 180;
-    const float rotateTransformMatrix[] = {cos(theta), -sin(theta), 0,
-                                            sin(theta), cos(theta),  0,
-                                            0,         0,            1};
+//    const float rotateTransformMatrix[] = {cos(theta), -sin(theta), 0,
+//                                            sin(theta), cos(theta),  0,
+//                                            0,         0,            1};
+    
+    const float rotateTransformMatrix[] = {cos(theta), -sin(theta), 250*(1-cos(theta))+250*sin(theta),
+        sin(theta), cos(theta),  250*(1-cos(theta))-250*sin(theta),
+        0,         0,            1};
     
     Matrix rotateTransform = Matrix(3, 3, rotateTransformMatrix);
     
@@ -179,7 +190,7 @@ void extendedCanvas::shearing(float a) {
 }
 
 //set clip window size
-void extendedCanvas::setClipWindow(float lly, float llx, float ury, float urx)
+void extendedCanvas::setClipWindow(float llx, float lly, float ury, float urx)
 {
     clipWindow.lly = lly;
     clipWindow.ury = ury;
@@ -190,12 +201,6 @@ void extendedCanvas::setClipWindow(float lly, float llx, float ury, float urx)
 // set viewprot size
 void extendedCanvas::setViewport(int x, int y, int width, int height)
 {
-    
-//    viewWindow.lly = x;
-//    viewWindow.ury = y;
-//    viewWindow.llx = width;
-//    viewWindow.urx = height;
-    
     viewWindow.llx = x;
     viewWindow.lly = y;
     viewWindow.urx = width;
